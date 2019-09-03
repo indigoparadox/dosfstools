@@ -62,6 +62,8 @@
 #include <unistd.h>
 #include <time.h>
 #include <errno.h>
+//The following line may be neccessary or not...
+#include <linux/fs.h>
 
 # include <asm/types.h>
 

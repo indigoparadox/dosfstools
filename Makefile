@@ -19,17 +19,20 @@
 # can be found in /usr/share/common-licenses/GPL-3 file.
 
 DESTDIR =
-PREFIX = /usr/local
+PREFIX = /opt/RESCUE/dosfstools
 SBINDIR = $(PREFIX)/sbin
 DOCDIR = $(PREFIX)/share/doc
 MANDIR = $(PREFIX)/share/man
 
+OPTFLAGS = -Os -s -march=i386 -mtune=i386 -m32 -fomit-frame-pointer -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -static
 #OPTFLAGS = -O2 -fomit-frame-pointer -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64
-OPTFLAGS = -O2 -fomit-frame-pointer $(shell getconf LFS_CFLAGS)
+#OPTFLAGS = -O2 -fomit-frame-pointer $(shell getconf LFS_CFLAGS)
+
 #WARNFLAGS = -Wall -pedantic -std=c99
 WARNFLAGS = -Wall
 DEBUGFLAGS = -g
 CFLAGS += $(OPTFLAGS) $(WARNFLAGS) $(DEBUGFLAGS)
+LDFLAGS = -static
 
 VPATH = src
 
